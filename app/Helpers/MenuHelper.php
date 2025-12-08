@@ -25,7 +25,7 @@ class MenuHelper
         return [
             [
                 'icon' => 'cog',
-                'name' => 'Konfigurasi User',
+                'name' => 'User Management',
                 'subItems' => [
                     ['name' => 'Users', 'path' => '/users', 'pro' => false],
                     ['name' => 'Roles', 'path' => '/roles', 'pro' => false],
@@ -60,7 +60,7 @@ class MenuHelper
                 'items' => self::getMasterItems()
             ],
             [
-                'title' => 'Konfigurasi',
+                'title' => 'Configurations',
                 'items' => self::getConfigsItems()
             ]
         ];

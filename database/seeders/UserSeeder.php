@@ -19,6 +19,6 @@ class UserSeeder extends Seeder
             'email' => 'superadmin@gmail.com',
         ]);
 
-        User::factory(10)->create();
+        User::factory(20)->create();
     }
 }
