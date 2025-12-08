@@ -74,10 +74,15 @@
                             </td>
 
                             <td class="px-2 sm:px-6 py-3">
-                                <p class="text-gray-700 text-theme-sm dark:text-gray-400">username</p>
+                                <p class="text-gray-700 text-theme-sm dark:text-gray-400">{{ $user->username }}</p>
                             </td>
                             <td class="px-2 sm:px-6 py-3">
-                                <p class="text-gray-700 text-theme-sm dark:text-gray-400">role</p>
+                                @forelse($user->roles as $role)
+                                    <span
+                                        class="px-2 py-1 rounded bg-green-100 text-green-800 text-sm">{{ $role->name }}</span>
+                                @empty
+                                    <span class="text-gray-400 text-sm">No roles</span>
+                                @endforelse
                             </td>
                             <td class="px-2 sm:px-6 py-3">
                                 <x-buttons.button-delete :id="$user->id" action="confirmDelete" />
