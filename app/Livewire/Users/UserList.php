@@ -8,6 +8,8 @@ use Livewire\WithPagination;
 use Livewire\Attributes\Title;
 use SweetAlert2\Laravel\Traits\WithSweetAlert;
 
+use function Pest\Laravel\delete;
+
 class UserList extends Component
 {
     use WithPagination, WithSweetAlert;
@@ -35,6 +37,17 @@ class UserList extends Component
 
     public function deleteUser()
     {
+        if ($this->deleteId == 1) {
+            $this->dispatch(
+                'swal-toast',
+                [
+                    'icon' => 'error',
+                    'message' => 'You cannot delete this user'
+                ]
+            );
+            return;
+        }
+
         User::find($this->deleteId)->delete();
 
         $this->dispatch(
