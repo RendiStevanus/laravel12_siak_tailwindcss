@@ -84,7 +84,8 @@
                                     {{ $prodi->dosen_id }}</p>
                             </td>
 
-                            <td class="px-2 sm:px-6 py-3">
+                            <td class="px-2 sm:px-6 py-3 flex gap-1">
+                                <x-buttons.button-edit :id="$prodi->id" action="editProgramStudi" />
                                 <x-buttons.button-delete :id="$prodi->id" action="confirmDelete" />
                             </td>
                         </tr>

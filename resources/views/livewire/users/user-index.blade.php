@@ -84,7 +84,8 @@
                                     <span class="text-gray-400 text-sm">No roles</span>
                                 @endforelse
                             </td>
-                            <td class="px-2 sm:px-6 py-3">
+                            <td class="px-2 sm:px-6 py-3 flex gap-1">
+                                <x-buttons.button-edit :id="$user->id" action="editUser" />
                                 <x-buttons.button-delete :id="$user->id" action="confirmDelete" />
                             </td>
                         </tr>
