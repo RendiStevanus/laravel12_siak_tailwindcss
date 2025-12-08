@@ -8,18 +8,17 @@ use Livewire\WithPagination;
 use Livewire\Attributes\Title;
 use SweetAlert2\Laravel\Traits\WithSweetAlert;
 
-use function Pest\Laravel\delete;
-
-class UserList extends Component
+class UserIndex extends Component
 {
     use WithPagination, WithSweetAlert;
     #[Title('User List')]
+    
     public $deleteId;
     protected $listeners = ['deleteConfirmed' => 'deleteUser'];
 
     public function render()
     {
-        return view('livewire.users.user-list', [
+        return view('livewire.users.user-index', [
             'users' => User::with('roles')->latest()->paginate(5)
         ]);
     }

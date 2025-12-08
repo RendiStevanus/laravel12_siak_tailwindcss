@@ -12,11 +12,6 @@ class MenuHelper
                 'name' => 'Dashboard',
                 'path' => '/dashboard',
             ],
-            [
-                'icon' => 'email',
-                'name' => 'Counters',
-                'path' => '/counter',
-            ],
         ];
     }
 
