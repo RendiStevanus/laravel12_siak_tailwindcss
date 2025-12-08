@@ -4,9 +4,10 @@
     window.addEventListener('show-confirm-delete', () => {
         const payload = event.detail[0];
 
+        const title = payload.title;
         const text = payload.text;
         Swal.fire({
-            title: "Are you sure?",
+            title: title ? title : "Are you sure?",
             text: text ? text : "You won't be able to revert this!",
             icon: "warning",
             showCancelButton: true,

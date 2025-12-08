@@ -12,7 +12,7 @@ class UserIndex extends Component
 {
     use WithPagination, WithSweetAlert;
     #[Title('User List')]
-    
+    public $title = 'User List';
     public $deleteId;
     protected $listeners = ['deleteConfirmed' => 'deleteUser'];
 

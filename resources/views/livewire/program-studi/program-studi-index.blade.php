@@ -36,13 +36,19 @@
                             No</th>
                         <th
                             class="px-6 py-3 font-medium text-gray-500 sm:px-6 text-theme-xs dark:text-gray-400 text-start">
-                            Name</th>
+                            Kode</th>
                         <th
                             class="px-6 py-3 font-medium text-gray-500 sm:px-6 text-theme-xs dark:text-gray-400 text-start">
-                            Username</th>
+                            Jenjang</th>
                         <th
                             class="px-6 py-3 font-medium text-gray-500 sm:px-6 text-theme-xs dark:text-gray-400 text-start">
-                            Role</th>
+                            Nama</th>
+                        <th
+                            class="px-6 py-3 font-medium text-gray-500 sm:px-6 text-theme-xs dark:text-gray-400 text-start">
+                            Akreditasi</th>
+                        <th
+                            class="px-6 py-3 font-medium text-gray-500 sm:px-6 text-theme-xs dark:text-gray-400 text-start">
+                            Kepala Prodi</th>
 
                         <th
                             class="px-6 py-3 font-medium text-gray-500 sm:px-6 text-theme-xs dark:text-gray-400 text-start">
@@ -50,49 +56,43 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($users as $user)
+                    @foreach ($program_studi as $prodi)
                         <tr class="border-b border-gray-100 dark:border-white/[0.05]">
                             <td class="text-center">
                                 <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                                    {{ $users->firstItem() + $loop->index }}</p>
+                                    {{ $program_studi->firstItem() + $loop->index }}</p>
                             </td>
 
                             <td class="px-2 sm:px-6 py-3">
-                                <div class="flex items-center gap-3">
-                                    <div class="flex items-center justify-center font-medium text-sm">
-                                        <img src="{{ asset('images/user/default-profile.jpg') }}"
-                                            class="size-10 flex-none rounded-full bg-gray-50 block object-cover">
-                                    </div>
-
-                                    <div>
-                                        <span
-                                            class="-mb-1 block text-theme-sm font-medium text-gray-700 dark:text-gray-400">{{ $user->name }}</span>
-                                        <span
-                                            class="text-gray-500 text-theme-sm dark:text-gray-400">{{ $user->email }}</span>
-                                    </div>
-                                </div>
+                                <p class="text-gray-700 text-theme-sm dark:text-gray-400">
+                                    {{ $prodi->kode }}</p>
+                            </td>
+                            <td class="px-2 sm:px-6 py-3">
+                                <p class="text-gray-700 text-theme-sm dark:text-gray-400 uppercase">
+                                    {{ $prodi->jenjang }}</p>
+                            </td>
+                            <td class="px-2 sm:px-6 py-3">
+                                <p class="text-gray-700 text-theme-sm dark:text-gray-400 capitalize">
+                                    {{ $prodi->nama }}</p>
+                            </td>
+                            <td class="px-2 sm:px-6 py-3">
+                                <p class="text-gray-700 text-theme-sm dark:text-gray-400 capitalize">
+                                    {{ $prodi->akreditasi }}</p>
+                            </td>
+                            <td class="px-2 sm:px-6 py-3">
+                                <p class="text-gray-700 text-theme-sm dark:text-gray-400 capitalize">
+                                    {{ $prodi->dosen_id }}</p>
                             </td>
 
                             <td class="px-2 sm:px-6 py-3">
-                                <p class="text-gray-700 text-theme-sm dark:text-gray-400">{{ $user->username }}</p>
-                            </td>
-                            <td class="px-2 sm:px-6 py-3">
-                                @forelse($user->roles as $role)
-                                    <span
-                                        class="px-2 py-1 rounded bg-green-100 text-green-800 text-sm">{{ $role->name }}</span>
-                                @empty
-                                    <span class="text-gray-400 text-sm">No roles</span>
-                                @endforelse
-                            </td>
-                            <td class="px-2 sm:px-6 py-3">
-                                <x-buttons.button-delete :id="$user->id" action="confirmDelete" />
+                                <x-buttons.button-delete :id="$prodi->id" action="confirmDelete" />
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
             <div class="p-3">
-                {{ $users->links() }}
+                {{ $program_studi->links() }}
             </div>
         </div>
     </div>
