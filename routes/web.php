@@ -15,8 +15,8 @@ Route::get('/', function () {
 
 Route::get('/dashboard', Dashboard::class)->name('dashboard');
 // Master Data
-Route::get('/perguruan-tinggi', PerguruanTinggiIndex::class)->name('perguruan-tinggi');
 Route::get('/program-studi', ProgramStudiIndex::class)->name('program-studi');
+Route::get('/perguruan-tinggi', PerguruanTinggiIndex::class)->name('perguruan-tinggi');
 
 // User Management
 Route::get('/users', UserIndex::class)->name('users');
