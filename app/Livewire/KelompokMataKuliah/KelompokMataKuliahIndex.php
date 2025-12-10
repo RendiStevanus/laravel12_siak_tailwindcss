@@ -2,14 +2,17 @@
 
 namespace App\Livewire\KelompokMataKuliah;
 
-use App\Models\KelompokMataKuliah;
 use Livewire\Component;
+use Livewire\WithPagination;
 use Livewire\Attributes\Title;
+use App\Models\KelompokMataKuliah;
+use SweetAlert2\Laravel\Traits\WithSweetAlert;
 
 #[Title('Kelompok Mata Kuliah')]
 
 class KelompokMataKuliahIndex extends Component
 {
+    use WithPagination, WithSweetAlert;
     public $title = 'Daftar Kelompok Mata Kuliah';
 
     public function render()

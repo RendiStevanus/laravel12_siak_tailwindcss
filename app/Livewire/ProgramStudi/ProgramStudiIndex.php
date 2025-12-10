@@ -22,7 +22,7 @@ class ProgramStudiIndex extends Component
         return view(
             'livewire.program-studi.program-studi-index',
             [
-                'program_studi' => ProgramStudi::latest()->paginate(5)
+                'program_studi' => ProgramStudi::latest()->paginate(10)
             ]
         );
     }

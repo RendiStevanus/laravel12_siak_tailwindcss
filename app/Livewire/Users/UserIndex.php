@@ -14,13 +14,14 @@ class UserIndex extends Component
 {
     use WithPagination, WithSweetAlert;
     public $title = 'User List';
+    
     public $deleteId;
     protected $listeners = ['deleteConfirmed' => 'deleteUser'];
 
     public function render()
     {
         return view('livewire.users.user-index', [
-            'users' => User::with('roles')->latest()->paginate(5)
+            'users' => User::with('roles')->latest()->paginate(10)
         ]);
     }
 

@@ -12,24 +12,30 @@ class MenuHelper
                 'name' => 'Dashboard',
                 'path' => '/dashboard',
             ],
+            [
+                'icon' => 'user-profile',
+                'name' => 'Mahasiswa',
+                'subItems' => [
+                    ['name' => 'Mahasiswa', 'path' => '/mahasiswa', 'pro' => false],
+                ],
+            ]
         ];
     }
 
-    public static function getConfigsItems(): array
+    public static function getAkademikItems(): array
     {
         return [
             [
-                'icon' => 'cog',
-                'name' => 'User Management',
+                'icon' => 'task',
+                'name' => 'Akademik',
                 'subItems' => [
-                    ['name' => 'Users', 'path' => '/users', 'pro' => false],
-                    ['name' => 'Roles', 'path' => '/roles', 'pro' => false],
-                    ['name' => 'Permissions', 'path' => '/permissions', 'pro' => false],
+                    ['name' => 'Tahun Akademik', 'path' => '/tahun-akademik', 'pro' => false],
+                    ['name' => 'Jadwal Perwalian', 'path' => '/jadwal-perwalian', 'pro' => false],
+                    ['name' => 'Kurikulum', 'path' => '/kurikulum', 'pro' => false],
                 ],
-            ],
+            ]
         ];
     }
-
     public static function getMasterItems(): array
     {
         return [
@@ -49,12 +55,31 @@ class MenuHelper
         ];
     }
 
+    public static function getConfigsItems(): array
+    {
+        return [
+            [
+                'icon' => 'cog',
+                'name' => 'User Management',
+                'subItems' => [
+                    ['name' => 'Users', 'path' => '/users', 'pro' => false],
+                    ['name' => 'Roles', 'path' => '/roles', 'pro' => false],
+                    ['name' => 'Permissions', 'path' => '/permissions', 'pro' => false],
+                ],
+            ],
+        ];
+    }
+
     public static function getMenuGroups(): array
     {
         return [
             [
-                'title' => 'Menu Utama',
+                'title' => '',
                 'items' => self::getMainNavItems()
+            ],
+            [
+                'title' => 'Akademik',
+                'items' => self::getAkademikItems()
             ],
             [
                 'title' => 'Master Data',

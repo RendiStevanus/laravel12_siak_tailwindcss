@@ -14,6 +14,7 @@ class PermissionIndex extends Component
 {
     use WithPagination, WithSweetAlert;
     public $title = 'Permission List';
+
     public $deleteId;
     protected $listeners = ['deleteConfirmed' => 'deletePermission'];
     public function render()

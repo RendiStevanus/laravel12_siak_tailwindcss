@@ -20,7 +20,7 @@ class RoleIndex extends Component
     public function render()
     {
         return view('livewire.roles.role-index', [
-            'roles' => Role::latest()->paginate(5)
+            'roles' => Role::latest()->paginate(10)
         ]);
     }
 
