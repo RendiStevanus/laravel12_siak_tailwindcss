@@ -19,5 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PerguruanTinggiSeeder::class);
         $this->call(ProgramStudiSeeder::class);
         $this->call(GedungSeeder::class);
+        $this->call(RuanganSeeder::class);
+        $this->call(NilaiSkalaSeeder::class);
     }
 }
