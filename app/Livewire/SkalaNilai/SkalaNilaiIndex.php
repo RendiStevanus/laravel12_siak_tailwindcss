@@ -6,10 +6,11 @@ use Livewire\Component;
 use App\Models\SkalaNilai;
 use Livewire\Attributes\Title;
 
+#[Title('Skala Nilai')]
+
 class SkalaNilaiIndex extends Component
 {
-    #[Title('Skala Nilai')]
-    public $title = 'Skala Nilai';
+    public $title = 'Daftar Skala Nilai';
 
     public function render()
     {

@@ -6,10 +6,11 @@ use App\Models\Gedung;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 
+#[Title('Gedung')]
+
 class GedungIndex extends Component
 {
-    #[Title('Program Studi')]
-    public $title = 'Gedung';
+    public $title = 'Daftar Gedung';
 
     public function render()
     {

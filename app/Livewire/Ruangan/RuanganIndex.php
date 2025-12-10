@@ -10,7 +10,7 @@ use Livewire\Attributes\Title;
 
 class RuanganIndex extends Component
 {
-    public $title = 'Ruangan';
+    public $title = 'Daftar Ruangan';
 
     public function render()
     {

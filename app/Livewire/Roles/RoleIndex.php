@@ -8,10 +8,11 @@ use Livewire\Attributes\Title;
 use Spatie\Permission\Models\Role;
 use SweetAlert2\Laravel\Traits\WithSweetAlert;
 
+#[Title('Roles')]
+
 class RoleIndex extends Component
 {
     use WithPagination, WithSweetAlert;
-    #[Title('Roles')]
     public $title = 'Role List';
     public $deleteId;
     protected $listeners = ['deleteConfirmed' => 'deleteRole'];

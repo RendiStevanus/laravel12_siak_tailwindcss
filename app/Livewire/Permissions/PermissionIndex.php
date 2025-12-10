@@ -8,10 +8,11 @@ use Livewire\Attributes\Title;
 use Spatie\Permission\Models\Permission;
 use SweetAlert2\Laravel\Traits\WithSweetAlert;
 
+#[Title('Permissions')]
+
 class PermissionIndex extends Component
 {
     use WithPagination, WithSweetAlert;
-    #[Title('Permissions')]
     public $title = 'Permission List';
     public $deleteId;
     protected $listeners = ['deleteConfirmed' => 'deletePermission'];
