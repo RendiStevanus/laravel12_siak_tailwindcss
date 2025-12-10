@@ -4,6 +4,7 @@ use App\Livewire\Roles\RoleIndex;
 
 use App\Livewire\Users\UserIndex;
 use App\Livewire\Dashboard\Dashboard;
+use App\Livewire\Gedung\GedungIndex;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Permissions\PermissionIndex;
 use App\Livewire\PerguruanTinggi\PerguruanTinggiIndex;
@@ -15,6 +16,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', Dashboard::class)->name('dashboard');
 // Master Data
+Route::get('/gedung', GedungIndex::class)->name('gedung');
 Route::get('/program-studi', ProgramStudiIndex::class)->name('program-studi');
 Route::get('/perguruan-tinggi', PerguruanTinggiIndex::class)->name('perguruan-tinggi');
 
