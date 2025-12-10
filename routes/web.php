@@ -1,19 +1,20 @@
 <?php
 
+use App\Livewire\Roles\RoleIndex;
+
+use App\Livewire\Users\UserIndex;
+
+use App\Livewire\Gedung\GedungIndex;
+use App\Livewire\Dashboard\Dashboard;
 use Illuminate\Support\Facades\Route;
 
-use App\Livewire\Dashboard\Dashboard;
-
-use App\Livewire\Roles\RoleIndex;
-use App\Livewire\Users\UserIndex;
-use App\Livewire\Permissions\PermissionIndex;
-
 use App\Livewire\Ruangan\RuanganIndex;
-use App\Livewire\Gedung\GedungIndex;
-use App\Livewire\KelompokMataKuliah\KelompokMataKuliahIndex;
+use App\Livewire\MataKuliah\MataKuliahIndex;
+use App\Livewire\SkalaNilai\SkalaNilaiIndex;
+use App\Livewire\Permissions\PermissionIndex;
 use App\Livewire\ProgramStudi\ProgramStudiIndex;
 use App\Livewire\PerguruanTinggi\PerguruanTinggiIndex;
-use App\Livewire\SkalaNilai\SkalaNilaiIndex;
+use App\Livewire\KelompokMataKuliah\KelompokMataKuliahIndex;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,6 +23,7 @@ Route::get('/', function () {
 Route::get('/dashboard', Dashboard::class)->name('dashboard');
 
 // Master Data
+Route::get('/mata-kuliah', MataKuliahIndex::class)->name('mata-kuliah');
 Route::get('/kelompok-mata-kuliah', KelompokMataKuliahIndex::class)->name('kelompok-mata-kuliah');
 Route::get('/skala-nilai', SkalaNilaiIndex::class)->name('skala-nilai');
 Route::get('/ruangan', RuanganIndex::class)->name('ruangan');
