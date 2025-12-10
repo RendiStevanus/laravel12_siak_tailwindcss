@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(GedungSeeder::class);
         $this->call(RuanganSeeder::class);
         $this->call(NilaiSkalaSeeder::class);
+        $this->call(KelompokMataKuliahSeeder::class);
     }
 }

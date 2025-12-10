@@ -6,9 +6,10 @@ use App\Models\Ruangan;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 
+#[Title('Ruangan')]
+
 class RuanganIndex extends Component
 {
-    #[Title('Ruangan')]
     public $title = 'Ruangan';
 
     public function render()

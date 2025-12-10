@@ -37,6 +37,8 @@ class MenuHelper
                 'icon' => 'database',
                 'name' => 'Master Data',
                 'subItems' => [
+                    ['name' => 'Mata Kuliah', 'path' => '/mata-kuliah', 'pro' => false],
+                    ['name' => 'Kelompok Mata Kuliah', 'path' => '/kelompok-mata-kuliah', 'pro' => false],
                     ['name' => 'Skala Nilai', 'path' => '/skala-nilai', 'pro' => false],
                     ['name' => 'Ruangan', 'path' => '/ruangan', 'pro' => false],
                     ['name' => 'Gedung', 'path' => '/gedung', 'pro' => false],
