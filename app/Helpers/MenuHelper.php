@@ -29,7 +29,7 @@ class MenuHelper
             ],
         ];
     }
-    
+
     public static function getMasterItems(): array
     {
         return [
@@ -37,6 +37,7 @@ class MenuHelper
                 'icon' => 'database',
                 'name' => 'Master Data',
                 'subItems' => [
+                    ['name' => 'Skala Nilai', 'path' => '/skala-nilai', 'pro' => false],
                     ['name' => 'Ruangan', 'path' => '/ruangan', 'pro' => false],
                     ['name' => 'Gedung', 'path' => '/gedung', 'pro' => false],
                     ['name' => 'Program Studi', 'path' => '/program-studi', 'pro' => false],
