@@ -4,7 +4,7 @@
         @elseif (isset($attributes['wire:click']))
         {{ $attributes->only('wire:click') }} @endif
         class="focus:outline-none">
-        <svg class="text-teal-700 cursor-pointer size-5 hover:text-teal-400 dark:text-gray-400 dark:hover:text-teal-600
+        <svg class="text-blue-600 cursor-pointer size-5 hover:text-blue-400 dark:text-gray-400 dark:hover:text-blue-600
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
             <path fill-rule="evenodd"
