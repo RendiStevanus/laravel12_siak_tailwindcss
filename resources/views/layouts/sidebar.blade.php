@@ -76,6 +76,7 @@
                 height="32" />
         </a>
     </div>
+    
 
     <!-- Navigation Menu -->
     <div class="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar">
