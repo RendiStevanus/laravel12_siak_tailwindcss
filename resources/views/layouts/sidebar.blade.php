@@ -76,16 +76,19 @@
                 height="32" />
         </a>
     </div>
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> ac5e4491ce87a026a3cac5d4b0be662f17635815
     <!-- Navigation Menu -->
-    <div class="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar">
+    <div class="flex flex-col overflow-y-auto duration-300 ease-li no-scrollbar ">
         <nav class="mb-6">
             <div class="flex flex-col gap-4">
                 @foreach ($menuGroups as $groupIndex => $menuGroup)
                     <div>
                         <!-- Menu Group Title -->
-                        <h2 class="mb-4 text-xs uppercase flex leading-[20px] text-gray-400"
+                        <h2 class="mb-4 text-xs  flex leading-[20px] text-gray-400"
                             :class="(!$store.sidebar.isExpanded && !$store.sidebar.isHovered && !$store.sidebar.isMobileOpen) ?
                             'lg:justify-center' : 'justify-start'">
                             <template

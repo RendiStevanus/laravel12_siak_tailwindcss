@@ -12,6 +12,46 @@ class MenuHelper
                 'name' => 'Dashboard',
                 'path' => '/dashboard',
             ],
+            [
+                'icon' => 'user-profile',
+                'name' => 'Mahasiswa',
+                'subItems' => [
+                    ['name' => 'Mahasiswa', 'path' => '/mahasiswa', 'pro' => false],
+                ],
+            ]
+        ];
+    }
+
+    public static function getAkademikItems(): array
+    {
+        return [
+            [
+                'icon' => 'task',
+                'name' => 'Akademik',
+                'subItems' => [
+                    ['name' => 'Tahun Akademik', 'path' => '/tahun-akademik', 'pro' => false],
+                    ['name' => 'Jadwal Perwalian', 'path' => '/jadwal-perwalian', 'pro' => false],
+                    ['name' => 'Kurikulum', 'path' => '/kurikulum', 'pro' => false],
+                ],
+            ]
+        ];
+    }
+    public static function getMasterItems(): array
+    {
+        return [
+            [
+                'icon' => 'database',
+                'name' => 'Master Data',
+                'subItems' => [
+                    ['name' => 'Mata Kuliah', 'path' => '/mata-kuliah', 'pro' => false],
+                    ['name' => 'Kelompok Mata Kuliah', 'path' => '/kelompok-mata-kuliah', 'pro' => false],
+                    ['name' => 'Skala Nilai', 'path' => '/skala-nilai', 'pro' => false],
+                    ['name' => 'Ruangan', 'path' => '/ruangan', 'pro' => false],
+                    ['name' => 'Gedung', 'path' => '/gedung', 'pro' => false],
+                    ['name' => 'Program Studi', 'path' => '/program-studi', 'pro' => false],
+                    ['name' => 'Perguruan Tinggi', 'path' => '/perguruan-tinggi', 'pro' => false],
+                ],
+            ]
         ];
     }
 
@@ -29,26 +69,17 @@ class MenuHelper
             ],
         ];
     }
-    public static function getMasterItems(): array
-    {
-        return [
-            [
-                'icon' => 'database',
-                'name' => 'Master Data',
-                'subItems' => [
-                    ['name' => 'Program Studi', 'path' => '/program-studi', 'pro' => false],
-                    ['name' => 'Perguruan Tinggi', 'path' => '/perguruan-tinggi', 'pro' => false],
-                ],
-            ]
-        ];
-    }
 
     public static function getMenuGroups(): array
     {
         return [
             [
-                'title' => 'Menu Utama',
+                'title' => '',
                 'items' => self::getMainNavItems()
+            ],
+            [
+                'title' => 'Akademik',
+                'items' => self::getAkademikItems()
             ],
             [
                 'title' => 'Master Data',

@@ -124,6 +124,8 @@ window.addEventListener('resize', checkMobile);">
             <div class="p-4 mx-auto max-w-(--breakpoint-2xl) md:p-6">
                 @yield('content')
             </div>
+
+            <div class="p-4 "></div>
         </div>
 
     </div>

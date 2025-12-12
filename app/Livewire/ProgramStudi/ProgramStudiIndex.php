@@ -8,11 +8,12 @@ use Livewire\WithPagination;
 use Livewire\Attributes\Title;
 use SweetAlert2\Laravel\Traits\WithSweetAlert;
 
+#[Title('Program Studi')]
+
 class ProgramStudiIndex extends Component
 {
     use WithPagination, WithSweetAlert;
-    #[Title('Program Studi')]
-    public $title = 'Program Studi';
+    public $title = 'Daftar Program Studi';
     public $deleteId;
     protected $listeners = ['deleteConfirmed' => 'deleteProgramStudi'];
 
@@ -21,7 +22,7 @@ class ProgramStudiIndex extends Component
         return view(
             'livewire.program-studi.program-studi-index',
             [
-                'program_studi' => ProgramStudi::latest()->paginate(5)
+                'program_studi' => ProgramStudi::latest()->paginate(10)
             ]
         );
     }

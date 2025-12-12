@@ -18,5 +18,10 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(PerguruanTinggiSeeder::class);
         $this->call(ProgramStudiSeeder::class);
+        $this->call(GedungSeeder::class);
+        $this->call(RuanganSeeder::class);
+        $this->call(NilaiSkalaSeeder::class);
+        $this->call(KelompokMataKuliahSeeder::class);
+        $this->call(MataKuliahSeeder::class);
     }
 }

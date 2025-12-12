@@ -5,9 +5,10 @@ namespace App\Livewire\Dashboard;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Dashboard')]
+
 class Dashboard extends Component
 {
-    #[Title('Dashboard')]
 
     public function render()
     {
