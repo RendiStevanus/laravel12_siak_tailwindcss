@@ -133,6 +133,7 @@ window.addEventListener('resize', checkMobile);">
         </div>
 
     </div>
+    @stack('modals')
 
     @include('sweetalert2::index')
     @livewireScripts

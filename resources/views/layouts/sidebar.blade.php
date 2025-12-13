@@ -11,43 +11,61 @@
     class="fixed flex flex-col mt-0 top-0 px-5 left-0 bg-white dark:bg-gray-900 dark:border-gray-800 text-gray-900 h-screen transition-all duration-300 ease-in-out z-99999 border-r border-gray-200"
     x-data="{
         openSubmenus: {},
-        init() {
-            // Auto-open Dashboard menu on page load
-            this.initializeActiveMenus();
-        },
-        initializeActiveMenus() {
-            const currentPath = '{{ $currentPath }}';
     
+        init() {
+            this.autoOpenActiveSubmenus();
+        },
+    
+        // --- Normalizer (hilangkan slash depan/belakang)
+        normalize(path) {
+            return path.replace(/^\/+|\/+$/g, '');
+        },
+    
+        // --- Check aktif (exact + prefix)
+        isActive(path) {
+            if (!path) return false;
+    
+            const expected = this.normalize(path);
+            const current = this.normalize(window.location.pathname);
+    
+            // Exact match → /users === /users
+            if (current === expected) return true;
+    
+            // Prefix match → /users/* → /users/create
+            if (current.startsWith(expected + '/')) return true;
+    
+            return false;
+        },
+    
+        // --- Auto open submenu jika child aktif
+        autoOpenActiveSubmenus() {
             @foreach ($menuGroups as $groupIndex => $menuGroup)
-                @foreach ($menuGroup['items'] as $itemIndex => $item)
-                    @if (isset($item['subItems']))
-                        // Check if any submenu item matches current path
-                        @foreach ($item['subItems'] as $subItem)
-                            if (currentPath === '{{ ltrim($subItem['path'], '/') }}' ||
-                                window.location.pathname === '{{ $subItem['path'] }}') {
-                                this.openSubmenus['{{ $groupIndex }}-{{ $itemIndex }}'] = true;
-                            } @endforeach
+            @foreach ($menuGroup['items'] as $itemIndex => $item)
+                @if (isset($item['subItems']))
+                    @foreach ($item['subItems'] as $subItem)
+                        if (this.isActive('{{ $subItem['path'] }}')) {
+                            this.openSubmenus['{{ $groupIndex }}-{{ $itemIndex }}'] = true;
+                        } @endforeach
             @endif
             @endforeach
             @endforeach
         },
-        toggleSubmenu(groupIndex, itemIndex) {
-            const key = groupIndex + '-' + itemIndex;
-            const newState = !this.openSubmenus[key];
     
-            // Close all other submenus when opening a new one
-            if (newState) {
+        // --- Toggle submenu
+        toggleSubmenu(g, i) {
+            const key = `${g}-${i}`;
+    
+            // Close others when opening new
+            if (!this.openSubmenus[key]) {
                 this.openSubmenus = {};
             }
     
-            this.openSubmenus[key] = newState;
+            this.openSubmenus[key] = !this.openSubmenus[key];
         },
-        isSubmenuOpen(groupIndex, itemIndex) {
-            const key = groupIndex + '-' + itemIndex;
-            return this.openSubmenus[key] || false;
-        },
-        isActive(path) {
-            return window.location.pathname === path || '{{ $currentPath }}' === path.replace(/^\//, '');
+    
+        // --- Check submenu open
+        isSubmenuOpen(g, i) {
+            return this.openSubmenus[`${g}-${i}`] || false;
         }
     }"
     :class="{
@@ -59,7 +77,7 @@
     @mouseenter="if (!$store.sidebar.isExpanded) $store.sidebar.setHovered(true)"
     @mouseleave="$store.sidebar.setHovered(false)">
     <!-- Logo Section -->
-    <div class="pt-8 pb-7 flex"
+    <div class="py-4 flex"
         :class="(!$store.sidebar.isExpanded && !$store.sidebar.isHovered && !$store.sidebar.isMobileOpen) ?
         'xl:justify-center' :
         'justify-start'">
@@ -76,11 +94,6 @@
                 height="32" />
         </a>
     </div>
-<<<<<<< HEAD
-    
-
-=======
->>>>>>> ac5e4491ce87a026a3cac5d4b0be662f17635815
     <!-- Navigation Menu -->
     <div class="flex flex-col overflow-y-auto duration-300 ease-li no-scrollbar ">
         <nav class="mb-6">

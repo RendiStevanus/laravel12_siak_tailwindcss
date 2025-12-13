@@ -32,7 +32,7 @@
                     class="px-6 py-3.5 border-t border-gray-100 border-y bg-gray-50 dark:border-white/[0.05] dark:bg-gray-900">
                     <tr>
                         <th
-                            class="px-1 py-3 font-medium text-center text-gray-500 sm:px-2 text-theme-xs dark:text-gray-400">
+                            class="px-6 py-3 font-medium text-center text-gray-500 sm:px-2 text-theme-xs dark:text-gray-400">
                             No</th>
                         <th
                             class="px-6 py-3 font-medium text-gray-500 sm:px-6 text-theme-xs dark:text-gray-400 text-start">
@@ -52,25 +52,25 @@
                 <tbody>
                     @foreach ($kelompokMataKuliah as $item)
                         <tr class="border-b border-gray-100 dark:border-white/[0.05]">
-                            <td class="text-center">
+                            <td class="px-4 sm:px-6 py-3.5 text-center">
                                 <p class="text-gray-700 text-theme-sm dark:text-gray-400">
                                     {{ $kelompokMataKuliah->firstItem() + $loop->index }}</p>
                             </td>
 
-                            <td class="px-2 sm:px-6 py-3">
+                            <td class="px-4 sm:px-6 py-3.5">
                                 <p class="text-gray-700 text-theme-sm dark:text-gray-400 capitalize">
                                     {{ $item->nama }}</p>
                             </td>
-                            <td class="px-2 sm:px-6 py-3">
+                            <td class="px-4 sm:px-6 py-3.5">
                                 <p class="text-gray-700 text-theme-sm dark:text-gray-400 uppercase">
                                     {{ $item->singkatan }}</p>
                             </td>
-                            <td class="px-2 sm:px-6 py-3">
+                            <td class="px-4 sm:px-6 py-3.5">
                                 <p class="text-gray-700 text-theme-sm dark:text-gray-400 capitalize">
                                     {{ $item->deskripsi }}</p>
                             </td>
 
-                            <td class="px-2 sm:px-6 py-3 flex gap-1">
+                            <td class="px-4 sm:px-6 py-3.5 flex gap-1">
                                 <x-buttons.button-edit :id="$item->id" action="editProgramStudi" />
                                 <x-buttons.button-delete :id="$item->id" action="confirmDelete" />
                             </td>

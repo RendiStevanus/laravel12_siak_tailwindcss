@@ -1,6 +1,28 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
+    document.addEventListener('livewire:navigated', () => {
+        const toast = @json(session()->pull('toast'));
+
+        if (!toast) return;
+
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            icon: toast.icon,
+            title: toast.message,
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+        });
+    }, {
+        once: true
+    });
+</script>
+
+
+
+<script>
     window.addEventListener('show-confirm-delete', () => {
         const payload = event.detail[0];
 

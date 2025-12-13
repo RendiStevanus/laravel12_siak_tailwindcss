@@ -32,14 +32,14 @@ class UserSeeder extends Seeder
             'name'      => 'Admin Prodi 1',
             'username'  => 'prodi1@gmail.com',
             'email'     => 'prodi1@gmail.com',
-            // 'prodi_id'  => 1,
+            'prodi_id'  => 1,
         ]);
 
         $adminProdi2 = User::factory()->create([
             'name'      => 'Admin Prodi 2',
             'username'  => 'prodi2@gmail.com',
             'email'     => 'prodi2@gmail.com',
-            // 'prodi_id'  => 2,
+            'prodi_id'  => 2,
         ]);
 
 

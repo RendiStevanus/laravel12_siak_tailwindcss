@@ -15,6 +15,7 @@ use App\Livewire\Permissions\PermissionIndex;
 use App\Livewire\ProgramStudi\ProgramStudiIndex;
 use App\Livewire\PerguruanTinggi\PerguruanTinggiIndex;
 use App\Livewire\KelompokMataKuliah\KelompokMataKuliahIndex;
+use App\Livewire\Users\UserForm;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,7 +33,10 @@ Route::get('/program-studi', ProgramStudiIndex::class)->name('program-studi');
 Route::get('/perguruan-tinggi', PerguruanTinggiIndex::class)->name('perguruan-tinggi');
 
 // User Management
-Route::get('/users', UserIndex::class)->name('users');
+Route::get('/users', UserIndex::class)->name('users.index');
+Route::get('/users/create', UserForm::class)->name('users.create');
+Route::get('/users/{userId}/edit', UserForm::class)->name('users.edit');
+
 Route::get('/roles', RoleIndex::class)->name('roles');
 Route::get('/permissions', PermissionIndex::class)->name('permission');
 
