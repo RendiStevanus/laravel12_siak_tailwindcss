@@ -17,7 +17,7 @@
                     </label>
 
                     <div class="relative">
-                        <input type="text" wire:model.defer="name"
+                        <input type="text" wire:model.defer="name" placeholder="Name"
                             class="
                             w-full rounded-lg border px-4 py-2.5 pr-10 text-sm shadow-theme-xs bg-transparent 
                             text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden 
@@ -57,7 +57,7 @@
                     </label>
 
                     <div class="relative">
-                        <input type="text" wire:model.defer="username"
+                        <input type="text" wire:model.defer="username" placeholder="Username"
                             class="
                             w-full rounded-lg border px-4 py-2.5 pr-10 text-sm shadow-theme-xs bg-transparent 
                             text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden 
@@ -161,12 +161,21 @@
 
                     <div class="relative z-20 bg-transparent">
                         <select wire:model.live="role" @class([
-                            'dark:bg-dark-900 shadow-theme-xs h-11 w-full appearance-none rounded-lg border bg-transparent px-4 py-2.5 pr-11 text-sm focus:ring-3 focus:outline-hidden',
-                            'border-gray-300 text-gray-800 placeholder:text-gray-400 focus:border-brand-300 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800' => !$errors->has(
+                            'text-gray-400 dark:text-white/30' => empty($role),
+                            'text-gray-800 dark:text-white/90' => !empty($role),
+                        
+                            // base
+                            'shadow-theme-xs h-11 w-full appearance-none rounded-lg border bg-transparent px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30',
+                        
+                            // normal state
+                            'border-gray-300 focus:border-brand-300 focus:ring-brand-500/10 dark:border-gray-700 dark:focus:border-brand-800' => !$errors->has(
                                 'role'),
-                            'border-red-500 focus:border-red-500 focus:ring-red-500/10' => $errors->has(
+                        
+                            // error state (border only)
+                            'border-red-500 focus:border-red-500 focus:ring-red-500/10 dark:border-red-700 dark:focus:border-red-700' => $errors->has(
                                 'role'),
                         ])>
+
                             <option value="">
                                 ::.. Pilih Role ..::
                             </option>
@@ -180,7 +189,7 @@
 
                         <span
                             class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2
-                            {{ $errors->has('role') ? 'text-red-500' : 'text-gray-700 dark:text-gray-400' }}">
+                   text-gray-700 dark:text-gray-400">
                             <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20"
                                 fill="none">
                                 <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke-width="1.5"
@@ -198,8 +207,8 @@
                 </div>
 
 
+
                 @if ($role === 'admin-prodi')
-                    <!-- Elements -->
                     <div>
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Program Studi <span class="text-red-500">*</span>
@@ -207,13 +216,24 @@
 
                         <div class="relative z-20 bg-transparent">
                             <select wire:model.defer="prodi_id" @class([
-                                'dark:bg-dark-900 shadow-theme-xs h-11 w-full appearance-none rounded-lg border bg-transparent px-4 py-2.5 pr-11 text-sm focus:ring-3 focus:outline-hidden',
-                                'border-gray-300 text-gray-800 placeholder:text-gray-400 focus:border-brand-300 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800' => !$errors->has(
+                                // base
+                                'shadow-theme-xs h-11 w-full appearance-none rounded-lg border bg-transparent px-4 py-2.5 pr-11 text-sm
+                                                                                                                                                                                                                                                                                                             text-gray-800 placeholder:text-gray-400
+                                                                                                                                                                                                                                                                                                             focus:ring-3 focus:outline-hidden
+                                                                                                                                                                                                                                                                                                             dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30',
+                            
+                                // normal
+                                'border-gray-300 focus:border-brand-300 focus:ring-brand-500/10
+                                                                                                                                                                                                                                                                                                             dark:border-gray-700 dark:focus:border-brand-800' => !$errors->has(
                                     'prodi_id'),
-                                'border-red-500 focus:border-red-500 focus:ring-red-500/10' => $errors->has(
+                            
+                                // error (border only)
+                                'border-red-500 focus:border-red-500 focus:ring-red-500/10
+                                                                                                                                                                                                                                                                                                             dark:border-red-700 dark:focus:border-red-700' => $errors->has(
                                     'prodi_id'),
                             ])>
-                                <option value="">
+
+                                <option value="" class="text-gray-400 dark:text-white/30">
                                     ::.. Pilih Program Studi ..::
                                 </option>
 
@@ -226,7 +246,7 @@
 
                             <span
                                 class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2
-                                    {{ $errors->has('prodi_id') ? 'text-red-500' : 'text-gray-700 dark:text-gray-400' }}">
+                       text-gray-700 dark:text-gray-400">
                                 <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20"
                                     fill="none">
                                     <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke-width="1.5"
@@ -237,12 +257,13 @@
 
                         {{-- Error message --}}
                         @error('prodi_id')
-                            <p class="mt-1 text-sm text-red-500">
+                            <p class="mt-1 text-sm text-red-500 dark:text-red-400">
                                 {{ $message }}
                             </p>
                         @enderror
                     </div>
                 @endif
+
 
 
                 <!-- Elements -->
